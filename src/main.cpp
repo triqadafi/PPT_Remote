@@ -14,7 +14,6 @@
 
 SoftwareSerial blueToothSerial(PIN_RX, PIN_TX); // RX, TX
 
-
 void setup() {
     // put your setup code here, to run once:
   pinMode(PIN_PREV, INPUT_PULLUP);
@@ -23,8 +22,6 @@ void setup() {
   pinMode(PIN_BLANK, INPUT_PULLUP);
 
   blueToothSerial.begin(9600);
-
-
 }
 
 void loop() {
@@ -32,22 +29,14 @@ void loop() {
   if(digitalRead(PIN_NEXT) == LOW){
     blueToothSerial.write(0x03); // PAGE UP
     delay(200);
-    while(digitalRead(PIN_NEXT) == LOW);
-    delay(200);
   }else if(digitalRead(PIN_PREV) == LOW){
     blueToothSerial.write(0x06); // PAGE DOWN
-    delay(200);
-    while(digitalRead(PIN_NEXT) == LOW);
     delay(200);
   }else if(digitalRead(PIN_START) == LOW){
     blueToothSerial.write(0x13); // F5
     delay(200);
-    while(digitalRead(PIN_NEXT) == LOW);
-    delay(200);
   }else if(digitalRead(PIN_BLANK) == LOW){
     blueToothSerial.print("B"); // B
-    delay(200);
-    while(digitalRead(PIN_NEXT) == LOW);
     delay(200);
   }
 }
