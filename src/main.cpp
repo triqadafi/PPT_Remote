@@ -13,7 +13,7 @@
 #define PIN_TX 0
 
 SoftwareSerial blueToothSerial(PIN_RX, PIN_TX); // RX, TX
-
+// namba
 void setup() {
     // put your setup code here, to run once:
   pinMode(PIN_PREV, INPUT_PULLUP);
